@@ -76,5 +76,6 @@ C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\Blazor2.pdb
 C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\Blazor2.genruntimeconfig.cache
 C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\ref\Blazor2.dll
 C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\scopedcss\Components\Pages\Note.razor.rz.scp.css
-C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\compressed\zojm4aaut2-ndwkoxtir7.gz
-C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\compressed\7wzp1xcs49-ndwkoxtir7.gz
+C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\Blazor2.sourcelink.json
+C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\compressed\zojm4aaut2-ct4m8zqd74.gz
+C:\Users\User\Desktop\Blazor\Blazor2\obj\Debug\net9.0\compressed\7wzp1xcs49-ct4m8zqd74.gz
