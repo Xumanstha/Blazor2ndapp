@@ -1,7 +1,7 @@
 @page "/note"
 @rendermode InteractiveServer
 
-<h1>Note</h1>
+<h1>Note: @counter</h1>
 <div class="main">
     <h2 class="header2">Add new Title</h2>
     <div class="main2">
@@ -13,65 +13,77 @@
     </div>
 </div>
 <h2>All the notes:</h2>
-@if(counter==0)
+@if (counter == 0)
 {
     <span>No notes available yet</span>
 }
 <div class="noted">
-@foreach(var note in Notelist)
-{
-    <div class="note">
-        <div class="note1">
-        <h3>Title:</h3>
-    @if(note.IsEdit==false){
-    
-        <span>@note.Title</span>
-        }else
-        {
-            <input class="edit1" type="text" @bind=note.Title>
-            }
-            <button @onclick="()=>Edit(note)" class="eb">
-            @if(note.IsEdit==false){<span>Edit</span>}
-            else{<span>Save</span>
-                }
-                </button>
-        </div>
-        <div class=note2>
-    <h3>Description:</h3>
-    @if(note.IsEdit==false){
-    <p>@note.Descriptions</p>}else
+    @foreach (var note in Notelist)
     {
+        <div class="note">
+            <div class="note1">
+                <h3>Title:</h3>
+                @if (note.IsEdit == false)
+                {
+                    <span>@note.counter</span>
+                    <span>@note.Title</span>
+                }
+                else
+                {
+                    <input class="edit1" type="text" @bind=note.Title>
+                }
+                <button @onclick="()=>Edit(note)" class="eb">
+                    @if (note.IsEdit == false)
+                    {
+                        <span>Edit</span>
+                    }
+                    else
+                    {
+                        <span>Save</span>
+                    }
+                </button>
+            </div>
+            <div class=note2>
+                <h3>Description:</h3>
+                @if (note.IsEdit == false)
+                {
+                    <p>@note.Descriptions</p>
+                }
+                else
+                {
 
-            <textarea @bind=note.Descriptions></textarea>
-    }
+                    <textarea @bind=note.Descriptions></textarea>
+                }
+            </div>
+            <button @onclick="()=>Delete(note)" class="eb">Delete</button>
         </div>
-                <button @onclick="()=>Delete(note)" class="eb">Delete</button>
-    </div>
     }
 </div>
 
 
 
-@code{
-    int counter=0;
+@code {
+    int counter = 0;
 
-    string title="";
-    string description="";
-    public List<NoteItem> Notelist=new List<NoteItem>();
+    string title = "";
+    string description = "";
+    public List<NoteItem> Notelist = new List<NoteItem>();
     void Listing()
     {
-        if(title!=""&&description!="")
-   {
-     Notelist.Add(new NoteItem(title,description));
-     counter++;
-   }
+        if (title != "" && description != "")
+        {
+            Notelist.Add(new NoteItem { Title = title, Descriptions = description, counter = ++counter });
+
+            @* counter++; *@
+        }
     }
     void Edit(NoteItem note)
     {
-        note.IsEdit=!note.IsEdit;
+        note.IsEdit = !note.IsEdit;
     }
     void Delete(NoteItem note)
     {
-      Notelist.Remove(note);
+        Notelist.Remove(note);
+        counter--;
     }
-}    
+}
